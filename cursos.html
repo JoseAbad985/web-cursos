@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Lista de Cursos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos Disponibles</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -10,37 +11,26 @@
   <!-- Encabezado -->
   <header>
     <div class="container">
-      <h1>Plataforma de Gestión de Cursos</h1>
+      <img src="assets/images/logo.png" alt="Logo de la plataforma">
       <nav>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="PaginaPrincipal.html">Inicio</a></li>
           <li><a href="cursos.html">Cursos</a></li>
-          <li><a href="agregar_curso.html">Agregar Curso</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="agregar_cursos.html">Agregar Curso</a></li>
+          <li><a href="Contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Sección Principal -->
+  <!-- Lista de Cursos -->
   <main>
-    <div class="container">
-      <h2>Lista de Cursos</h2>
-      <!-- Barra de búsqueda y filtros -->
-      <div class="search-filter">
-        <input type="text" id="search" placeholder="Buscar cursos...">
-        <select id="filter">
-          <option value="all">Todos</option>
-          <option value="programming">Programación</option>
-          <option value="design">Diseño</option>
-          <option value="marketing">Marketing</option>
-        </select>
-      </div>
-      <!-- Grid de cursos -->
+    <section class="container">
+      <h2>Nuestros Cursos</h2>
       <div class="grid" id="course-grid">
-        <!-- Los cursos se cargarán aquí dinámicamente -->
+        <!-- Los cursos se mostrarán aquí dinámicamente -->
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- Pie de Página -->
@@ -50,8 +40,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
-
 </body>
 </html>
