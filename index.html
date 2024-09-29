@@ -2,37 +2,42 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Cursos</title>
+    <title>Plataforma de Gestión de Cursos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- Encabezado -->
     <header>
-        <h1>Plataforma de Gestión de Cursos</h1>
+        <div class="container">
+            <h1>Bienvenido a la Plataforma de Cursos</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="cursos.html">Cursos</a></li>
+                    <li><a href="agregar_curso.html">Agregar Curso</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
-    <!-- Barra de Navegación -->
-<nav>
-    <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
-        <li><a href="agregar_curso.html">Agregar Curso</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-</nav>
 
     <!-- Sección Principal -->
     <main>
-        <section id="course-list">
-            <h2>Lista de Cursos</h2>
-            <!-- Aquí se mostrará la lista de cursos -->
-        </section>
+        <div class="container">
+            <section class="hero">
+                <h2>Expande tus conocimientos con nuestros cursos</h2>
+                <p>Encuentra una variedad de cursos para impulsar tu carrera profesional.</p>
+                <a href="cursos.html" class="btn">Ver Cursos</a>
+            </section>
+        </div>
     </main>
 
     <!-- Pie de Página -->
     <footer>
-        <p>&copy; 2023 Plataforma de Cursos</p>
+        <div class="container">
+            <p>&copy; 2023 Plataforma de Gestión de Cursos. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
 </body>
