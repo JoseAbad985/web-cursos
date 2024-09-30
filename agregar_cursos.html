@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- Encabezado -->
   <header>
     <div class="container">
       <img src="assets/images/logo.png" alt="Logo de la plataforma">
@@ -22,8 +23,8 @@
     </div>
   </header>
 
-  
-  <main> 
+  <!-- Formulario para agregar curso -->
+  <main>
     <section class="container">
       <h2>Agregar Nuevo Curso</h2>
       <form id="course-form">
@@ -32,7 +33,6 @@
 
         <label for="category">Categoría:</label>
         <select id="category" name="category" required>
-          <option value="">Seleccione una categoría</option>
           <option value="programacion">Programación</option>
           <option value="diseño">Diseño</option>
         </select>
@@ -46,8 +46,13 @@
         <label for="duration">Duración (semanas):</label>
         <input type="number" id="duration" name="duration" required>
 
-        <label for="description">Descripción:</label>
-        <textarea id="description" name="description" rows="5" required></textarea>
+        <!-- Descripción corta -->
+        <label for="short-description">Descripción corta:</label>
+        <textarea id="short-description" name="short-description" rows="3" required></textarea>
+
+        <!-- Descripción detallada -->
+        <label for="details">Detalles del Curso:</label>
+        <textarea id="details" name="details" rows="5" required></textarea>
 
         <label for="image-url">URL de la Imagen:</label>
         <input type="url" id="image-url" name="image-url" required>
@@ -57,12 +62,53 @@
     </section>
   </main>
 
-
+  <!-- Pie de Página -->
   <footer>
     <div class="container">
       <p>&copy; 2023 Plataforma de Gestión de Cursos. Todos los derechos reservados.</p>
     </div>
   </footer>
 
+  <script>
+    document.getElementById('course-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita que el formulario se envíe normalmente
+
+      // Obtener los datos del formulario
+      const courseName = document.getElementById('course-name').value;
+      const category = document.getElementById('category').value;
+      const instructor = document.getElementById('instructor-name').value;
+      const startDate = document.getElementById('start-date').value;
+      const duration = document.getElementById('duration').value;
+      const shortDescription = document.getElementById('short-description').value;
+      const details = document.getElementById('details').value;
+      const imageUrl = document.getElementById('image-url').value;
+
+      // Crear un nuevo curso
+      const newCourse = {
+        nombre: courseName,
+        categoria: category,
+        instructor: instructor,
+        fechaInicio: startDate,
+        duracion: duration,
+        descripcionCorta: shortDescription,
+        detalles: details,
+        imagen: imageUrl
+      };
+
+      // Obtener los cursos almacenados en localStorage
+      let cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+
+      // Agregar el nuevo curso
+      cursos.push(newCourse);
+
+      // Guardar los cursos actualizados en localStorage
+      localStorage.setItem('cursos', JSON.stringify(cursos));
+
+      // Vaciar el formulario
+      document.getElementById('course-form').reset();
+
+      alert('Curso agregado exitosamente!');
+    });
+  </script>
 </body>
 </html>

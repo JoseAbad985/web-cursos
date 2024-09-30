@@ -23,28 +23,89 @@
     </div>
   </header>
 
-
   <main>
     <section class="container">
       <h2>Nuestros Cursos</h2>
       <div class="grid" id="course-grid">
-       
+        
       </div>
 
-
-      <div id="course-description" class="course-description">
-        
+      
+      <div id="course-details" style="display:none;">
+        <h3>Detalles del Curso</h3>
+        <p id="details-nombre"></p>
+        <p id="details-instructor"></p>
+        <p id="details-fechaInicio"></p>
+        <p id="details-duracion"></p>
+        <p id="details-detalles"></p>
+        <button id="hide-details">Ocultar Detalles</button>
       </div>
     </section>
   </main>
 
-
+ 
   <footer>
     <div class="container">
       <p>&copy; 2023 Plataforma de Gestión de Cursos. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+   
+    function cargarCursos() {
+      const cursosContainer = document.getElementById('course-grid');
+      cursosContainer.innerHTML = ''; 
+
+      
+      let cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+
+      
+      cursos.forEach((curso, index) => {
+        const cursoDiv = document.createElement('div');
+        cursoDiv.classList.add('course-card');
+        
+        cursoDiv.innerHTML = `
+          <img src="${curso.imagen}" alt="${curso.nombre}">
+          <h3>${curso.nombre}</h3>
+          <p><strong>Descripción:</strong> ${curso.descripcionCorta}</p>
+          <button class="btn" data-index="${index}">Ver detalles</button>
+        `;
+        
+        cursosContainer.appendChild(cursoDiv);
+      });
+
+      
+      const botonesDetalles = document.querySelectorAll('.btn');
+      botonesDetalles.forEach(boton => {
+        boton.addEventListener('click', mostrarDetalles);
+      });
+    }
+
+    
+    function mostrarDetalles(event) {
+      const index = event.target.getAttribute('data-index');
+      let cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+
+      const curso = cursos[index];
+
+      
+      document.getElementById('details-nombre').textContent = `Nombre del Curso: ${curso.nombre}`;
+      document.getElementById('details-instructor').textContent = `Instructor: ${curso.instructor}`;
+      document.getElementById('details-fechaInicio').textContent = `Fecha de Inicio: ${curso.fechaInicio}`;
+      document.getElementById('details-duracion').textContent = `Duración: ${curso.duracion} semanas`;
+      document.getElementById('details-detalles').textContent = `Detalles: ${curso.detalles}`;
+
+      
+      document.getElementById('course-details').style.display = 'block';
+    }
+
+    
+    document.getElementById('hide-details').addEventListener('click', function() {
+      document.getElementById('course-details').style.display = 'none';
+    });
+
+    
+    document.addEventListener('DOMContentLoaded', cargarCursos);
+  </script>
 </body>
 </html>
