@@ -1,7 +1,7 @@
-/* Importando la fuente desde Google Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-/* Reset CSS */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,9 +11,11 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
-/* Variables CSS */
+
+
 :root {
   --primary-color: #2C3E50;
   --secondary-color: #18BC9C;
@@ -22,13 +24,11 @@ html, body {
   --font-family: 'Poppins', sans-serif;
 }
 
-/* Estilos Globales */
+
 body {
-  font-family: var(--font-family);
-  color: var(--text-color);
-  background-color: var(--background-color);
-  line-height: 1.6;
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
 a {
@@ -46,14 +46,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Contenedor principal */
+
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Encabezado */
+
 header {
   background-color: var(--primary-color);
   color: #fff;
@@ -89,17 +89,18 @@ nav ul li a:hover {
   background-color: var(--secondary-color);
 }
 
-/* Sección Hero */
+
 .hero {
   text-align: center;
   padding: 150px 0;
-  background-image: url('assets/images/background.png'); /* Usa la imagen que prefieras */
-  background-size: cover; /* Ajusta para cubrir toda la sección */
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: url('assets/images/background.png'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   color: #fff;
   position: relative;
-  height: calc(100vh - 120px); /* Ajusta según la altura del header y footer */
+  height: 100vh; 
+  width: 100vw; 
 }
 
 .hero::before {
@@ -109,12 +110,14 @@ nav ul li a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Añadir sombra oscura para hacer que el texto sea más legible */
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
 }
 
 .hero h2, .hero p {
   position: relative;
-  z-index: 2;
+  z-index: 2; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
 }
 
 .hero h2 {
@@ -143,7 +146,7 @@ nav ul li a:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Tarjeta de curso */
+
 .course-card {
   background-color: #fff;
   padding: 15px;
@@ -158,8 +161,12 @@ nav ul li a:hover {
 }
 
 .course-card img {
-  width: 100%;
-  border-radius: 5px;
+  width: 100%; 
+  max-width: 80px; 
+  height: auto; 
+  display: block;
+  margin: 0 auto; 
+  border-radius: 5px; 
 }
 
 .course-card h3 {
@@ -183,7 +190,7 @@ nav ul li a:hover {
   background-color: #1ABC9C;
 }
 
-/* Estilos del formulario */
+
 form {
   display: flex;
   flex-direction: column;
@@ -221,12 +228,65 @@ form button:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Pie de página */
+
+main {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+
 footer {
   background-color: var(--primary-color);
   color: #fff;
   padding: 20px 0;
   text-align: center;
-  margin-top: auto;
   width: 100%;
+  position: relative;
+  margin-top: auto; 
+}
+.course-description {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.course-description img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.course-description h2 {
+  margin-bottom: 15px;
+}
+
+.course-description p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+
+
+footer {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  margin-top: auto;
+  bottom: 0;
+  left: 0;
+}
+
+section.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
